@@ -1,0 +1,49 @@
+{
+  "webhook_type": "NEW_SESSION_WEBHOOK",
+  "is_new_session": true,
+  "payload": {
+    "from": {
+      "id": 90004322,
+      "id_str": "90004322",
+      "name": "Daniel Tan",
+      "email": "+65 9123 4566",
+      "avatar_url": "https://example.com/avatar/default.png"
+    },
+    "message": {
+      "id": 550001002,
+      "id_str": "550001002",
+      "type": "file_attachment",
+      "text": "[file] https://example.com/files/brochure-request.jpg [/file]",
+      "payload": {
+        "url": "https://example.com/files/brochure-request.jpg",
+        "caption": "Can I get the price list for this model?"
+      },
+      "timestamp": "2026-10-01T04:02:10Z"
+    },
+    "room": {
+      "id": 70004322,
+      "id_str": "70004322",
+      "name": "Daniel Tan",
+      "type": "group",
+      "options": "{\"channel\":\"wa\",\"source\":\"wa\"}",
+      "participants": [
+        {
+          "email": "+65 9123 4566"
+        },
+        {
+          "email": "autosmart_admin@example.com"
+        }
+      ]
+    }
+  },
+  "room_log": {
+    "room_id": "70004322",
+    "channel_id": 101,
+    "source": "wa",
+    "name": "Daniel Tan",
+    "user_id": "+65 9123 4566",
+    "resolved": false,
+    "is_waiting": true,
+    "created_at": "2026-10-01T03:15:42Z"
+  }
+}
