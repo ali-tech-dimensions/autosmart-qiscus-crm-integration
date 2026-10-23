@@ -1,0 +1,16 @@
+{
+  "name": "autosmart-qiscus-crm-integration",
+  "version": "1.0.0",
+  "description": "Connects Qiscus Omnichannel Chat New Session webhooks to AutoSmart's CRM, with a mock CRM and leads view.",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "crm": "node crm-mock/server.js",
+    "middleware": "node middleware/server.js",
+    "start": "node scripts/start-all.js",
+    "test": "node --test test/*.test.js",
+    "demo": "bash scripts/demo.sh"
+  }
+}
