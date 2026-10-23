@@ -1,0 +1,37 @@
+services:
+  crm:
+    build: .
+    command: ["node", "crm-mock/server.js"]
+    environment:
+      PORT: "4000"
+      CRM_API_TOKEN: ${CRM_API_TOKEN:-dev-crm-token}
+      MOCK_SLOW_MS: ${MOCK_SLOW_MS:-10000}
+      MOCK_RETRY_AFTER: ${MOCK_RETRY_AFTER:-2}
+      MOCK_RANDOM_FAILURE_RATE: ${MOCK_RANDOM_FAILURE_RATE:-0}
+      DATA_DIR: /data
+    ports:
+      - "4000:4000"
+    volumes:
+      - crm-data:/data
+
+  middleware:
+    build: .
+    command: ["node", "middleware/server.js"]
+    depends_on:
+      - crm
+    environment:
+      PORT: "3000"
+      CRM_BASE_URL: http://crm:4000
+      CRM_API_TOKEN: ${CRM_API_TOKEN:-dev-crm-token}
+      CRM_TIMEOUT_MS: ${CRM_TIMEOUT_MS:-12000}
+      DEFAULT_COUNTRY: ${DEFAULT_COUNTRY:-MY}
+      WEBHOOK_SECRET: ${WEBHOOK_SECRET:-}
+      DATA_DIR: /data
+    ports:
+      - "3000:3000"
+    volumes:
+      - middleware-data:/data
+
+volumes:
+  crm-data:
+  middleware-data:
